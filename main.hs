@@ -1,4 +1,5 @@
-main :: IO ()
-main = do
-    putStrLn "Hi everyone"
-    putStrLn ("Take a look at those beautiful numbers: " ++ show (filter even [10..20]))
+addTuples :: [(Int, Int)] -> [Int]
+addTuples xs = [ x + y | (x, y) <- xs ]
+
+multiplyTuples :: [(Int, Int)] -> [Int]
+multiplyTuples xs = [ x * y | (x, y) <- xs ]
