@@ -1,3 +1,22 @@
+-- List Patterns
+myListSum :: [Int] -> Int
+myListSum [] = 0
+myListSum (x:xs) = x + myListSum xs
+
+-- List comprehension
+-- This multiplies all items from the list by 2
+-- [ 2 * x | x <- [1, 2, 3] ]
+
+-- This multiplies all items from the list by 2, applying a condition (item must be > 1)
+-- [ 2 * x | x <- [1, 2, 3], x > 1 ]
+
+-- Generating lists
+myListGenerator :: Int -> Int -> [Int]
+myListGenerator smallestNumber largestNumber
+    | smallestNumber > largestNumber = []
+    | smallestNumber == largestNumber = [smallestNumber]
+    | smallestNumber < largestNumber = smallestNumber : myListGenerator (smallestNumber + 1) largestNumber
+
 -- Accumulators
 myFacUsingAccumulators n = aux n 1
     where
