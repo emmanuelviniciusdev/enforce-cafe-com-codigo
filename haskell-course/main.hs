@@ -1,3 +1,33 @@
+-- Create a function "isAsc" that returns True if the list given to it is a list
+-- of ascending order.
+-- Professor`s solution:
+isAsc :: [Int] -> Bool
+isAsc [] = True
+isAsc [_] = True
+isAsc (x:y:xs) = (x <= y) && isAsc xs
+
+-- My solution:
+-- isAsc :: [Int] -> Bool
+-- isAsc [] = True
+-- isAsc [_] = True
+-- isAsc (x:xs)
+--     | x > head xs = False
+--     | otherwise = isAsc xs
+
+-- Create a function "nub" that removes all duplicates from a given list.
+nub :: (Eq a) => [a] -> [a]
+nub [] = []
+nub (x:xs)
+    | x `findElem` xs = nub xs
+    | otherwise = x : nub xs
+
+-- Create a function "findElem" that returns True if an element is in 
+-- a given list and returns False otherwise.
+findElem :: (Eq a) => a -> [a] -> Bool
+findElem _ [] = False
+findElem a (x:xs) = (a == x) || findElem a xs
+
+
 -- List Patterns
 myListSum :: [Int] -> Int
 myListSum [] = 0
